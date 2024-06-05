@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 
 const userLoggedKey = "userLogged";
 const userDataKey = "userData";
+const bookingDateKey = "bookingDate";
 const cartKey = "cart";
 
 export const CookieManager = {
@@ -35,6 +36,28 @@ export const CookieManager = {
   },
 
   // CART COOKIES
+  setBookingDates(dateFrom, dateTo) {
+    const bookingDates = JSON.stringify({
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+    });
+    Cookies.set(bookingDateKey, bookingDates);
+  },
+
+  getBookingDates() {
+    const bookingDatesCookie = Cookies.get(bookingDateKey);
+    let bookingDates;
+    if (bookingDatesCookie) {
+      bookingDates = JSON.parse(bookingDatesCookie);
+      return { ...bookingDates };
+    } else {
+      return null;
+    }
+  },
+
+  removeBookingDates() {
+    Cookies.remove(bookingDateKey);
+  },
 
   addToCart(item) {
     const cart = Cookies.get(cartKey);

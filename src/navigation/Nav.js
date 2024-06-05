@@ -2,6 +2,7 @@ import { CookieManager } from "../cookies/CookieManager";
 import { NavButton } from "./NavButton";
 import { Home } from "../views/Home";
 import { RoomList } from "../views/RoomList";
+import { TreatmentList } from "../views/TreatmentList";
 import { Cart } from "../views/Cart";
 import { UserManagement } from "../views/UserManagement";
 import { LogoutButton } from "../users/LogoutButton";
@@ -10,6 +11,7 @@ import { UserPage } from "../views/UserPage";
 const navItems = [
   { text: "Home", compontentFunction: Home },
   { text: "Rooms", compontentFunction: RoomList },
+  { text: "Treatments", compontentFunction: TreatmentList },
   { text: "Cart", compontentFunction: Cart },
 ];
 

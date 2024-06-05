@@ -1,7 +1,9 @@
 import { RemoveFromCartButton } from "../cart/RemoveFromCartButton";
+import { BookingForm } from "../booking/BookingForm";
 import { CookieManager } from "../cookies/CookieManager";
 
 export function Cart() {
+  const bookingDates = CookieManager.getBookingDates();
   const section = document.createElement("section");
 
   section.innerHTML = `
@@ -14,6 +16,9 @@ export function Cart() {
         <tr/>
     <table/>
   `;
+
+  const bookingForm = BookingForm(Cart, bookingDates, true);
+  section.append(bookingForm);
 
   const tableRows = CookieManager.getAllFromCart().map((item) => {
     const tr = document.createElement("tr");

@@ -1,4 +1,4 @@
-import "./style.css";
+import "./src/styles/main.scss";
 
 import { Nav } from "./src/navigation/Nav";
 import { Home } from "./src/views/Home";

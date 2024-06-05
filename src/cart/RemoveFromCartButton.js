@@ -3,7 +3,7 @@ import { CookieManager } from "../cookies/CookieManager";
 
 export function RemoveFromCartButton(item) {
   const removeFromCartButton = document.createElement("button");
-  removeFromCartButton.classList.add("btn", "btn-danger");
+  removeFromCartButton.classList.add("btn");
   removeFromCartButton.textContent = "Remove From Cart";
   removeFromCartButton.addEventListener("click", () => {
     CookieManager.removeFromCart(item);

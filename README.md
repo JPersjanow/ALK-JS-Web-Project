@@ -9,7 +9,7 @@ Simple web application simulating SPA website with ability to book a room, add i
 - Development environemnt: Vite
 - Styling: SASS
 - Cookie managament: js-cookie library
-- Query management: axios library
+- Requests management: axios library
 - Database management: js-server library
 
 ## How to run?

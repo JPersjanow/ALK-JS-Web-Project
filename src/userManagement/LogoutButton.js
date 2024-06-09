@@ -1,7 +1,11 @@
 import { CookieManager } from "../cookies/CookieManager";
 
 export function LogoutButton() {
+  const logoutButtonContainer = document.createElement("div");
   const logoutButton = document.createElement("button");
+
+  logoutButtonContainer.classList.add("button-container-no-icon");
+  logoutButton.classList.add("button");
   logoutButton.innerText = "Log Out";
 
   logoutButton.addEventListener("click", () => {
@@ -9,5 +13,7 @@ export function LogoutButton() {
     window.location.reload();
   });
 
-  return logoutButton;
+  logoutButtonContainer.append(logoutButton);
+
+  return logoutButtonContainer;
 }

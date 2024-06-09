@@ -1,16 +1,21 @@
 import axios from "axios";
 import { CookieManager } from "../cookies/CookieManager";
 import { Home } from "../views/Home";
+import { LoginButton } from "./LoginButton";
 
 export function LoginForm(modal) {
+  const loginButton = LoginButton();
   const loginForm = document.createElement("div");
+  loginForm.classList.add("login-form-container");
   loginForm.innerHTML = `
-    <form id="loginForm" onSubmit=>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-    <input type="text" placeholder="Enter Password" name="pass" required>
-    <button type="submit">Login</button>
+    <form class="user-management-form" id="loginForm">
+    <input type="text" placeholder="Username" name="uname" required>
+    <input type="password" placeholder="Password" name="pass" required>
     </form>
+    <p class="header-x-small">Don't have an account yet?</p>
   `;
+
+  loginForm.querySelector("form").append(loginButton);
 
   loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -47,6 +52,8 @@ export function LoginForm(modal) {
 
   if (modal) {
     loginForm.style.display = "none";
+    loginForm.style.display = "none";
+    loginForm.querySelector("form").classList.add("modal-content");
     const loginModalCloseButton = document.createElement("button");
     loginModalCloseButton.innerText = "X";
     loginModalCloseButton.addEventListener("click", () => {

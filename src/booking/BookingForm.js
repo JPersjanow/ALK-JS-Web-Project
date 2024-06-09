@@ -1,4 +1,13 @@
 import { CookieManager } from "../cookies/CookieManager";
+import { ClaendarImage } from "../assets/icons/CalendarImage";
+import { ResetImage } from "../assets/icons/ResetImage";
+import { DateInput } from "./DateInput";
+
+function bookingDatesCheck(dateForm, dateTo) {
+  if (dateForm === "" || dateTo === "") {
+    throw Error("Booking dates cannot be empty!");
+  }
+}
 
 function bookingDateComparator(dateFrom, dateTo) {
   let dateFromObject = Date.parse(dateFrom);
@@ -10,14 +19,14 @@ function bookingDateComparator(dateFrom, dateTo) {
   }
 
   if (dateToObject < dateFromObject) {
-    throw Error("From Date must be later then To Date");
+    throw Error("Check-out date must be later than Check-in date");
   }
 
   let yearCountBetweenDates =
     new Date(dateToObject - dateFromObject).getFullYear() - 1970;
 
   if (yearCountBetweenDates > 0) {
-    throw Error("Booking dates cannot be more then one year apart");
+    throw Error("Booking dates cannot be more than one year apart");
   }
 }
 
@@ -27,25 +36,41 @@ export function BookingForm(page, bookingDates, resetDatesConfirmation) {
   });
 
   const dateSection = document.createElement("section");
-
+  dateSection.classList.add("booking-form-container");
   const dateForm = document.createElement("form");
-  const dateFromInput = document.createElement("input");
-  dateFromInput.type = "date";
-  dateFromInput.id = "dateFrom";
-  const dateToInput = document.createElement("input");
-  dateToInput.type = "date";
-  dateToInput.id = "dateTo";
+  dateForm.classList.add("booking-form");
+  const dateInputContainer = document.createElement("div");
+  dateInputContainer.classList.add("booking-form-input-container");
+
+  const dateFromInput = DateInput("dateFrom", "date-picker", "Check-in Date");
+  const dateToInput = DateInput("dateTo", "date-picker", "Check-out Date");
+
+  const dateSubmitButtonContainer = document.createElement("div");
+  dateSubmitButtonContainer.classList.add("button-container");
   const dateSubmitButton = document.createElement("button");
   dateSubmitButton.type = "submit";
   dateSubmitButton.innerText = "Choose Dates";
+  dateSubmitButton.classList.add("button");
+  const calendarImage = ClaendarImage();
+  dateSubmitButtonContainer.append(calendarImage, dateSubmitButton);
+
+  const dateResetButtonContainer = document.createElement("div");
+  dateResetButtonContainer.classList.add("button-container");
   const dateResetButton = document.createElement("button");
-  dateResetButton.type = "submit";
   dateResetButton.innerText = "Reset Dates";
+  dateResetButton.classList.add("button");
+  const resetImage = ResetImage();
+
+  dateResetButtonContainer.append(resetImage, dateResetButton);
 
   if (bookingDates) {
     dateFromInput.value = bookingDates.dateFrom;
     dateToInput.value = bookingDates.dateTo;
   }
+
+  dateSubmitButtonContainer.addEventListener("click", () => {
+    dateForm.dispatchEvent(new SubmitEvent("submit"));
+  });
 
   dateForm.addEventListener("submit", (event) => {
     try {
@@ -54,6 +79,7 @@ export function BookingForm(page, bookingDates, resetDatesConfirmation) {
       let dateToFormValue = event.target[1].value;
 
       bookingDateComparator(dateFromFormValue, dateToFormValue);
+      bookingDatesCheck(dateFromFormValue, dateToFormValue);
 
       CookieManager.setBookingDates(dateFromFormValue, dateToFormValue);
     } catch (error) {
@@ -64,7 +90,7 @@ export function BookingForm(page, bookingDates, resetDatesConfirmation) {
     }
   });
 
-  dateResetButton.addEventListener("click", (event) => {
+  dateResetButtonContainer.addEventListener("click", (event) => {
     let confirmReset = true;
     if (resetDatesConfirmation) {
       confirmReset = confirm("Are you sure you want to reset dates?");
@@ -75,7 +101,12 @@ export function BookingForm(page, bookingDates, resetDatesConfirmation) {
     }
   });
 
-  dateForm.append(dateFromInput, dateToInput, dateSubmitButton);
-  dateSection.append(dateForm, dateResetButton);
+  dateInputContainer.append(dateFromInput, dateToInput);
+  dateForm.append(
+    dateInputContainer,
+    dateSubmitButtonContainer,
+    dateResetButtonContainer
+  );
+  dateSection.append(dateForm);
   return dateSection;
 }

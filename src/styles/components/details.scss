@@ -1,0 +1,35 @@
+.details-description-container {
+  display: flex;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: $default-border-radius;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  margin: 8px;
+  max-height: 1.5rem;
+  background-color: #ffffff;
+
+  &-no-shadow {
+    @extend .detail-container;
+    box-shadow: none;
+  }
+
+  &-no-max-width {
+    @extend .detail-container;
+    max-width: none;
+  }
+}
+
+.detail-text {
+  margin-left: 0.5rem;
+  @extend .header-x-small;
+  font-size: $paragraph-size-medium;
+  outline: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}

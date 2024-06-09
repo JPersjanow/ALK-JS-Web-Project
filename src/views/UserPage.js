@@ -1,17 +1,18 @@
 import { CookieManager } from "../cookies/CookieManager";
+import tropicalLeaves from "../assets/images/tropicalLeaves.png";
 
 export function UserPage() {
   const userData = CookieManager.getUserData();
   const userDetails = document.createElement("section");
 
   userDetails.innerHTML = `
-    <p>Your details</p>
-    <h4>First Name: ${userData.firstName}</h4>
-    <h4>Last Name: ${userData.lastName}</h4>
+    <div class="header-container">
+    <div class="header-img-container">
+      <h2 class="header-small">Nice to see you ${userData.firstName}<img src="${tropicalLeaves}"/></h2>
+    </div>
+    <p>Hope you are having a great day!</p>
+    </div>
     `;
 
-  const header = document.createElement("h2");
-  header.innerText = `Nice to see you ${userData.username}!`;
-  userDetails.append(header);
   return userDetails;
 }

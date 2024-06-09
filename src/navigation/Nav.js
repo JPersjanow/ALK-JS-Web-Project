@@ -5,7 +5,8 @@ import { RoomList } from "../views/RoomList";
 import { TreatmentList } from "../views/TreatmentList";
 import { Cart } from "../views/Cart";
 import { UserManagement } from "../views/UserManagement";
-import { LogoutButton } from "../users/LogoutButton";
+import { LoginButton } from "../userManagement/LoginButton";
+import { LogoutButton } from "../userManagement/LogoutButton";
 import { UserPage } from "../views/UserPage";
 
 const navItems = [
@@ -21,6 +22,7 @@ export function Nav() {
   const nav = document.createElement("nav");
   nav.classList.add("navbar");
   const navDiv = document.createElement("div");
+  navDiv.classList.add("nav-menu");
   const navButtons = navItems.map((navItem) =>
     NavButton(navItem.text, navItem.compontentFunction)
   );
@@ -32,14 +34,23 @@ export function Nav() {
     const userPage = NavButton("My profile", UserPage);
     navDiv.append(userPage);
     const logoutButton = LogoutButton();
-    navDiv.append(logoutButton);
+    logoutButton.classList.add("button-container");
     navUserInfo.innerHTML = `
-    <h3>Hello ${userData.username}</h3>
+    <h3>Hello ${userData.firstName}</h3>
     `;
-    navDiv.append(navUserInfo);
+    navUserInfo.append(logoutButton);
+    navUserInfo.classList.add("nav-user-info");
+    nav.append(navUserInfo);
   } else {
-    const loginButton = NavButton("Log In", UserManagement);
-    navDiv.append(loginButton);
+    const loginButton = LoginButton();
+    loginButton.addEventListener("click", () => {
+      const navigateEvent = new CustomEvent("navigate", {
+        detail: UserManagement,
+      });
+      document.body.dispatchEvent(navigateEvent);
+    });
+    nav.append(loginButton);
   }
+
   return nav;
 }

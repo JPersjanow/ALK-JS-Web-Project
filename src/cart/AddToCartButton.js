@@ -1,11 +1,20 @@
 import { CookieManager } from "../cookies/CookieManager";
+import { AddToCartImage } from "../assets/icons/AddToCartImage";
 
 export function AddToCartButton(item) {
+  const addToCartButtonContainer = document.createElement("div");
   const addToCartButton = document.createElement("button");
-  addToCartButton.classList.add("btn");
+  const addToCartImage = AddToCartImage();
+
+  addToCartButtonContainer.classList.add("button-container");
+  addToCartButton.classList.add("button");
+
   addToCartButton.textContent = "Add To Cart";
-  addToCartButton.addEventListener("click", () => {
+
+  addToCartButtonContainer.addEventListener("click", () => {
     CookieManager.addToCart(item);
   });
-  return addToCartButton;
+
+  addToCartButtonContainer.append(addToCartImage, addToCartButton);
+  return addToCartButtonContainer;
 }

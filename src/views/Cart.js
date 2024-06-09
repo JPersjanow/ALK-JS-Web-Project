@@ -1,32 +1,53 @@
+import { CookieManager } from "../cookies/CookieManager";
+import { RoomList } from "./RoomList";
 import { RemoveFromCartButton } from "../cart/RemoveFromCartButton";
 import { BookingForm } from "../booking/BookingForm";
-import { CookieManager } from "../cookies/CookieManager";
+import { Detail } from "../details/Detail";
+import { PriceImage } from "../assets/icons/PriceImage";
+import tropicalLeaves from "../assets/images/tropicalLeaves.png";
 
 export function Cart() {
   const bookingDates = CookieManager.getBookingDates();
   const section = document.createElement("section");
 
   section.innerHTML = `
-    <h2>Cart</h2>
+    <div class="header-container">
+    <div class="header-img-container">
+      <h2 class="header-medium">Cart<img src="${tropicalLeaves}"/></h2>
+    </div>
+    <p>Feel free to spend your money!</p>
+    </div>
     <table class="table">
+      <thead class="table-header">
         <tr>
-            <th>Name<th/>
-            <th>Quantity<th/>
-            <th>Price<th/>
-        <tr/>
-    <table/>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    
   `;
 
-  const bookingForm = BookingForm(Cart, bookingDates, true);
-  section.append(bookingForm);
+  if (bookingDates) {
+    const bookingFormHeader = document.createElement("h3");
+    bookingFormHeader.textContent =
+      "You can also change the date of your stay with us!";
+    const bookingForm = BookingForm(RoomList, bookingDates, true);
+    section.append(bookingFormHeader, bookingForm);
+  }
 
   const tableRows = CookieManager.getAllFromCart().map((item) => {
     const tr = document.createElement("tr");
+    tr.classList.add("table-row");
     tr.innerHTML = `
-    <td>${item.name}<td/>
-    <td>${item.quantity}<td/>
-    <td>${(item.quantity * item.price).toFixed(2)} PLN<td/>
-    <td><td/>
+    <td>${item.name}</td>
+    <td>${item.quantity}</td>
+    <td id="price">${(item.quantity * item.price).toFixed(2)} PLN</td>
+    <td></td>
     `;
 
     const removeFromCartButton = RemoveFromCartButton(item);
@@ -34,20 +55,31 @@ export function Cart() {
     return tr;
   });
   if (tableRows.length <= 0) {
-    const div = document.createElement("div");
-    div.classList.add("alert");
-    div.innerHTML = `
-    <p>No items in cart<p/>
+    const section = document.createElement("section");
+    section.innerHTML = `
+    <section-100-vh>
+      <div class="header-container">
+      <div class="header-img-container">
+        <h2 class="header-small">No items in cart!<img src="${tropicalLeaves}"/></h2>
+      </div>
+      <p>Check out our rooms, treatments and splurge yourself</p>
+      </div>
+    </section-100-vh>
+    
     `;
-    return div;
+    return section;
   }
 
-  const tableFooter = document.createElement("tr");
-  tableFooter.innerHTML = `
-    <td>TOTAL: ${CookieManager.getTotalPriceFromCart()} PLN<td/>
-    `;
-
-  section.querySelector("table").append(...tableRows, tableFooter);
-  section.querySelector("table").append(...tableRows);
+  const tableFooter = document.createElement("div");
+  tableFooter.classList.add("table-footer");
+  const totalPriceDetail = Detail(
+    PriceImage(),
+    `Total: ${CookieManager.getTotalPriceFromCart()} PLN`,
+    "Total cost",
+    true
+  );
+  tableFooter.append(totalPriceDetail);
+  section.querySelector("tbody").append(...tableRows);
+  section.querySelector("table").after(tableFooter);
   return section;
 }

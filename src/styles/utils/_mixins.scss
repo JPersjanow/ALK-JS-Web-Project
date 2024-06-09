@@ -1,0 +1,13 @@
+@mixin header-image() {
+  position: relative;
+  opacity: 0.9;
+  z-index: -1;
+  width: 10rem;
+  right: 10%;
+  top: 10%;
+}
+
+@mixin blurred-background($color) {
+  background-color: $color;
+  backdrop-filter: blur(10px);
+}

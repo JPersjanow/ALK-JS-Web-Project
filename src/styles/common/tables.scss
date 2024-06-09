@@ -1,0 +1,44 @@
+.table {
+  width: 70%;
+  max-width: 70%;
+  min-width: 50%;
+  @include blurred-background(rgba(255, 255, 255, 0.8));
+  border-collapse: separate;
+  padding: 1.5rem;
+  border-radius: $default-border-radius;
+
+  .table-header {
+    font-size: 2rem;
+    color: $header-color;
+
+    th {
+      text-align: left;
+    }
+  }
+
+  .table-row {
+    font-size: 1rem;
+
+    #price {
+      font-weight: $header-font-weight-medium;
+      color: $contrast-color;
+    }
+
+    td {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.table-footer {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  max-width: 70%;
+  min-width: 50%;
+}
+
+.table-buttons {
+  display: flex;
+}

@@ -1,33 +1,31 @@
-import { LoginForm } from "../users/LoginForm";
-import { RegisterForm } from "../users/RegisterForm";
+import { LoginForm } from "../userManagement/LoginForm";
+import { RegisterForm } from "../userManagement/RegisterForm";
+import { RegisterButton } from "../userManagement/RegisterButton";
+import tropicalLeaves from "../assets/images/tropicalLeaves.png";
 
 export function UserManagement() {
   const section = document.createElement("section");
   section.innerHTML = `
-  <h2>Hello!</h2>
+  <div class="header-container">
+    <div class="header-img-container">
+      <h2 class="header-medium">Are you ready?<img src="${tropicalLeaves}"/></h2>
+    </div>
+    <p>To spend some money... and relax!</p>
+  </div>  
   `;
 
-  const loginModal = LoginForm(true);
-
-  const loginButton = document.createElement("button");
-  loginButton.innerText = "Log in";
-
-  loginButton.addEventListener("click", () => {
-    loginModal.style.display = "block";
-  });
-
+  const loginWindow = LoginForm(false);
   const registerModal = RegisterForm(true);
 
-  const registerButton = document.createElement("button");
+  const registerButton = RegisterButton();
   registerButton.innerText = "Register";
 
   registerButton.addEventListener("click", () => {
     registerModal.style.display = "block";
   });
 
-  section.append(loginModal);
+  section.append(loginWindow);
   section.append(registerModal);
-  section.append(loginButton);
-  section.append(registerButton);
+  loginWindow.append(registerButton);
   return section;
 }

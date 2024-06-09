@@ -1,2 +1,21 @@
+@import "./utils/variables";
 @import "./base/normalize";
 @import "./base/typography";
+@import "./utils/mixins";
+@import "./common/buttons.scss";
+@import "./common/cards.scss";
+@import "./common/headers.scss";
+@import "./common/tables.scss";
+@import "./common/backgrounds.scss";
+@import "./common/sections.scss";
+@import "./components/booking.scss";
+@import "./components/loading.scss";
+@import "./components/cart.scss";
+@import "./components/userManagement.scss";
+@import "./components/details.scss";
+@import "./components/nav.scss";
+@import "./components/home.scss";
+
+.hide {
+  display: none;
+}

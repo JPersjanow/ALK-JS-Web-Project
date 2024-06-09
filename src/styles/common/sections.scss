@@ -1,0 +1,12 @@
+section {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-100-vh {
+    @extend section;
+    margin-top: 10rem;
+  }
+}

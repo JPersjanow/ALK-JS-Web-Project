@@ -1,16 +1,24 @@
 import { Cart } from "../views/Cart";
 import { CookieManager } from "../cookies/CookieManager";
+import { RemoveImage } from "../assets/icons/RemoveImage";
 
 export function RemoveFromCartButton(item) {
-  const removeFromCartButton = document.createElement("button");
-  removeFromCartButton.classList.add("btn");
-  removeFromCartButton.textContent = "Remove From Cart";
-  removeFromCartButton.addEventListener("click", () => {
+  const removeFromButtonContainer = document.createElement("div");
+  const removeImage = RemoveImage();
+
+  removeFromButtonContainer.classList.add(
+    "button-container",
+    "button-container--danger"
+  );
+
+  removeFromButtonContainer.addEventListener("click", () => {
     CookieManager.removeFromCart(item);
     const navigateEvent = new CustomEvent("navigate", {
       detail: Cart,
     });
     document.body.dispatchEvent(navigateEvent);
   });
-  return removeFromCartButton;
+
+  removeFromButtonContainer.append(removeImage);
+  return removeFromButtonContainer;
 }

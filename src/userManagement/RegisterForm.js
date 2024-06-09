@@ -1,19 +1,23 @@
 import axios from "axios";
 import { CookieManager } from "../cookies/CookieManager";
 import { Home } from "../views/Home";
+import { RegisterButton } from "./RegisterButton";
 
 export function RegisterForm(modal) {
   const registerForm = document.createElement("div");
 
   registerForm.innerHTML = `
-    <form id="registerForm">
+    <form class="user-management-form" id="registerForm">
+    <p class="header-x-small">Welcome, new one!</p>
     <input type="text" placeholder="Enter Username" name="uname" required>
     <input type="text" placeholder="Enter First Name" name="fname" required>
     <input type="text" placeholder="Enter Last Name" name="lname" required>
     <input type="text" placeholder="Enter Password" name="pass" required>
-    <button type="submit">Register</button>
     </form>
   `;
+
+  const registerButton = RegisterButton(true);
+  registerForm.querySelector("form").append(registerButton);
 
   registerForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -59,9 +63,12 @@ export function RegisterForm(modal) {
   });
 
   if (modal) {
+    registerForm.classList.add("modal");
     registerForm.style.display = "none";
+    registerForm.querySelector("form").classList.add("modal-content");
     const registerModalCloseButton = document.createElement("button");
     registerModalCloseButton.innerText = "X";
+    registerModalCloseButton.classList.add("close");
     registerForm.append(registerModalCloseButton);
 
     registerModalCloseButton.addEventListener("click", () => {

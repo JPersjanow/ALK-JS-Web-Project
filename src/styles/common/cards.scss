@@ -1,0 +1,49 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 2rem;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-title {
+  position: absolute;
+  margin-top: 0.5em;
+  margin-left: 2rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
+  text-shadow: 0.1rem 0.1rem #000000;
+}
+
+.card-image {
+  max-width: 50rem;
+  max-height: 25rem;
+  border-radius: $default-border-radius;
+}
+
+.card-image--hidden {
+  display: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.card-price {
+  margin-left: 8px;
+  font-size: 1.5rem;
+  color: $contrast-color;
+  font-weight: bold;
+}

@@ -1,0 +1,51 @@
+.booking-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-form-input-container {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: $default-border-radius;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+
+  &--error {
+    @extend .booking-form-input-container;
+    box-shadow: rgba(255, 0, 0, 0.2) 0 3px 5px -1px,
+      rgba(255, 0, 0, 0.14) 0 6px 10px 0, rgba(255, 0, 0, 0.12) 0 1px 18px 0;
+  }
+}
+
+.booking-form {
+  display: flex;
+}
+
+.date-picker-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.date-picker-container label {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+
+input[type="date"] {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 15px;
+  top: 50%;
+  left: 50%;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  // border-radius: 16px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}

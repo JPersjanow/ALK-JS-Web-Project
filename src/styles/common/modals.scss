@@ -1,0 +1,90 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(128, 128, 128, 0.85);
+  padding-top: 50px;
+
+  &-popup {
+    @extend .modal;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 40%;
+  height: 30rem;
+
+  div {
+    margin-top: 2rem;
+  }
+}
+
+.close {
+  position: absolute;
+  border-radius: $border-radius-small;
+  border: none;
+  right: 35px;
+  top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: $header-color;
+
+  &:hover {
+    cursor: pointer;
+    color: $primary-color;
+  }
+
+  &:focus {
+    cursor: pointer;
+  }
+
+  &-popup {
+    @extend .close;
+    color: #ffffff;
+
+    &:hover {
+      cursor: pointer;
+      color: $header-color;
+    }
+  }
+}
+
+.popup-modal-header {
+  padding: 2px 16px;
+  background-color: $primary-color;
+  color: white;
+  border-radius: $border-radius-small;
+}
+
+.popup-modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius: $default-border-radius;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}

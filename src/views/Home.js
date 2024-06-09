@@ -3,6 +3,9 @@ import hotelImage from "../assets/images/hotelImg.jpeg";
 import { ReviewImage } from "../assets/icons/ReviewImage";
 import { TimeImage } from "../assets/icons/TimeImage";
 import { Detail } from "../details/Detail";
+import { ReadMoreButton } from "../navigation/ReadMoreButton";
+import { TreatmentList } from "./TreatmentList";
+import { RoomList } from "./RoomList";
 
 export function Home() {
   const section = document.createElement("div");
@@ -20,12 +23,12 @@ export function Home() {
             </div>
             <div class="section">
               <div class="choice">
-                <div>
+                <div class="column">
                 <img src="${treatmensImage}" alt="SPA image showing realxed women in a bathub"/>
                 <h3>Indulge yourself</h3>
                 <p>From massages to bubble baths, feel relaxation coming onto you! </p>
                 </div>
-                <div>
+                <div class="column">
                 <img src="${hotelImage}" alt="Image of a beatiful resort"/>
                 <h3>Take a rest</h3>
                 <p>Our resort facility awaits, choose dates, book a room and up you go.</p>
@@ -35,6 +38,11 @@ export function Home() {
         </div>
 
     `;
+
+  const readMoreTreatments = ReadMoreButton(TreatmentList, "Choose Treatment");
+  const readMoreRooms = ReadMoreButton(RoomList, "Book a Room");
+  section.querySelectorAll(".column")[0].append(readMoreTreatments);
+  section.querySelectorAll(".column")[1].append(readMoreRooms);
 
   const reviewsSection = document.createElement("div");
   reviewsSection.classList.add("section");

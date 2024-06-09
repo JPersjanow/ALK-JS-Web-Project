@@ -45,11 +45,17 @@ body {
   justify-content: space-evenly;
 
   img {
-    width: $picture-size;
+    width: 100%;
+    min-width: $picture-size;
     height: $picture-size;
   }
 
-  div {
+  .icon {
+    width: 30px;
+    min-width: 30px;
+  }
+
+  div.column {
     width: $picture-size;
     display: flex;
     flex-direction: column;
@@ -63,6 +69,10 @@ body {
     p {
       text-align: center;
       font-size: 1.2rem;
+    }
+
+    .button-container {
+      width: 100%;
     }
   }
 }

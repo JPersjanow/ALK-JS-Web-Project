@@ -8,6 +8,7 @@
 @import "./common/tables.scss";
 @import "./common/backgrounds.scss";
 @import "./common/sections.scss";
+@import "./common/modals.scss";
 @import "./components/booking.scss";
 @import "./components/loading.scss";
 @import "./components/cart.scss";
@@ -18,4 +19,9 @@
 
 .hide {
   display: none;
+}
+
+.br {
+  display: block;
+  height: 5rem;
 }

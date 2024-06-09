@@ -69,11 +69,17 @@ export function RegisterForm(modal) {
     const registerModalCloseButton = document.createElement("button");
     registerModalCloseButton.innerText = "X";
     registerModalCloseButton.classList.add("close");
-    registerForm.append(registerModalCloseButton);
+    registerForm.querySelector("form").append(registerModalCloseButton);
 
     registerModalCloseButton.addEventListener("click", () => {
       registerForm.style.display = "none";
     });
+
+    window.onclick = function (event) {
+      if (event.target == registerForm) {
+        registerForm.style.display = "none";
+      }
+    };
   }
 
   return registerForm;

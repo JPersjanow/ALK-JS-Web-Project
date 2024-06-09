@@ -1,5 +1,6 @@
 import { CookieManager } from "../cookies/CookieManager";
 import { AddToCartImage } from "../assets/icons/AddToCartImage";
+import { showPopupModal, hidePopupModal } from "../popup/PopupModal";
 
 export function AddToCartButton(item) {
   const addToCartButtonContainer = document.createElement("div");
@@ -13,6 +14,8 @@ export function AddToCartButton(item) {
 
   addToCartButtonContainer.addEventListener("click", () => {
     CookieManager.addToCart(item);
+    showPopupModal();
+    setTimeout(hidePopupModal, "2000");
   });
 
   addToCartButtonContainer.append(addToCartImage, addToCartButton);

@@ -3,6 +3,7 @@ import "./src/styles/main.scss";
 import { Nav } from "./src/navigation/Nav";
 import { Home } from "./src/views/Home";
 import background from "./src/assets/videos/background.mp4";
+import { PopupModal } from "./src/popup/PopupModal";
 
 const app = document.querySelector("#app");
 
@@ -19,6 +20,7 @@ backgroundVideo.append(backgroundSource);
 app.before(backgroundVideo);
 app.before(Nav());
 app.append(Home());
+app.after(PopupModal({ text: "Item added to cart" }));
 
 document.body.addEventListener("navigate", (event) => {
   const Component = event.detail;

@@ -19,7 +19,7 @@ export function RoomList() {
       <h2 class="header-big">Rooms<img src="${tropicalLeaves}"/></h2>
     </div>
     <p>Our rooms may not be the best, but also they are not the cheapest!</p>
-    <h3 class="rooms-date-header">Choose Check-in and Check-out dates:</h3>
+    <h3 class="header-date">Choose Check-in and Check-out dates:</h3>
   </div>  
     `;
 
@@ -73,7 +73,7 @@ export function RoomList() {
 
         const options = { month: "long", day: "numeric" };
         section.querySelector(
-          ".rooms-date-header"
+          ".header-date"
         ).textContent = `We have found available rooms for your stay from ${new Date(
           bookingDates.dateFrom
         ).toLocaleDateString("en-us", options)} to ${new Date(

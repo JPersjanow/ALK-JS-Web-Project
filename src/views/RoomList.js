@@ -31,53 +31,58 @@ export function RoomList() {
     const div = document.createElement("div");
     div.classList.add("card-list");
 
-    axios.get("http://localhost:3000/rooms").then((response) => {
-      const roomsCards = response.data.map((room) => {
-        const roomCard = document.createElement("div");
-        roomCard.classList.add("card");
+    axios
+      .get("http://localhost:3000/rooms")
+      .then((response) => {
+        const roomsCards = response.data.map((room) => {
+          const roomCard = document.createElement("div");
+          roomCard.classList.add("card");
 
-        const roomCardTitle = document.createElement("h4");
-        roomCardTitle.classList.add("card-title");
-        roomCardTitle.textContent = room.name;
+          const roomCardTitle = document.createElement("h4");
+          roomCardTitle.classList.add("card-title");
+          roomCardTitle.textContent = room.name;
 
-        const roomCardBody = document.createElement("div");
-        roomCardBody.classList.add("card-body");
+          const roomCardBody = document.createElement("div");
+          roomCardBody.classList.add("card-body");
 
-        const roomCardPrice = document.createElement("p");
-        roomCardPrice.classList.add("card-price");
-        roomCardPrice.textContent = `${room.price.toFixed(2)} PLN`;
+          const roomCardPrice = document.createElement("p");
+          roomCardPrice.classList.add("card-price");
+          roomCardPrice.textContent = `${room.price.toFixed(2)} PLN`;
 
-        roomCardBody.append(roomCardPrice);
+          roomCardBody.append(roomCardPrice);
 
-        const roomImage = document.createElement("img");
-        roomImage.classList.add("card-image");
-        roomImage.setAttribute("src", room.image);
-        roomImage.setAttribute("loading", "lazy");
+          const roomImage = document.createElement("img");
+          roomImage.classList.add("card-image");
+          roomImage.setAttribute("src", room.image);
+          roomImage.setAttribute("loading", "lazy");
 
-        const roomButtonsContainer = document.createElement("div");
-        roomButtonsContainer.classList.add("card-buttons");
+          const roomButtonsContainer = document.createElement("div");
+          roomButtonsContainer.classList.add("card-buttons");
 
-        const addToCartButton = AddToCartButton(room);
-        const readMoreButton = ReadMoreButton(() => RoomDetails(room));
-        roomButtonsContainer.append(addToCartButton, readMoreButton);
-        roomCardBody.append(roomButtonsContainer);
+          const addToCartButton = AddToCartButton(room);
+          const readMoreButton = ReadMoreButton(() => RoomDetails(room));
+          roomButtonsContainer.append(addToCartButton, readMoreButton);
+          roomCardBody.append(roomButtonsContainer);
 
-        roomCard.append(roomCardTitle, roomImage, roomCardBody);
-        return roomCard;
+          roomCard.append(roomCardTitle, roomImage, roomCardBody);
+          return roomCard;
+        });
+        div.append(...roomsCards);
+        section.append(div);
+        section.querySelector(".loading").remove();
+
+        const options = { month: "long", day: "numeric" };
+        section.querySelector(
+          ".rooms-date-header"
+        ).textContent = `We have found available rooms for your stay from ${new Date(
+          bookingDates.dateFrom
+        ).toLocaleDateString("en-us", options)} to ${new Date(
+          bookingDates.dateTo
+        ).toLocaleDateString("en-us", options)}!`;
+      })
+      .catch((error) => {
+        alert(error.message);
       });
-      div.append(...roomsCards);
-      section.append(div);
-      section.querySelector(".loading").remove();
-
-      const options = { month: "long", day: "numeric" };
-      section.querySelector(
-        ".rooms-date-header"
-      ).textContent = `We have found available rooms for your stay from ${new Date(
-        bookingDates.dateFrom
-      ).toLocaleDateString("en-us", options)} to ${new Date(
-        bookingDates.dateTo
-      ).toLocaleDateString("en-us", options)}!`;
-    });
   }
   return section;
 }

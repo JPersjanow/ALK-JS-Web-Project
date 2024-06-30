@@ -1,5 +1,5 @@
 .user-management-form {
-  @include blurred-background($contrast-color-opacity-low);
+  @include blurred-background(rgba(255, 255, 255, 0.6));
   display: flex;
   flex-direction: column;
   align-items: center;

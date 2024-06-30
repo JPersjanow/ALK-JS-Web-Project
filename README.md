@@ -4,6 +4,9 @@
 
 Simple web application simulating SPA website with ability to book a room, add items to cart, register or login user written in JavaScript
 
+## Check the demo
+Project is hosted on [Netlify](https://alk-spa.netlify.app/)
+
 ## "TechStack"
 
 - Development environemnt: Vite

@@ -1,7 +1,7 @@
 import { CookieManager } from "../cookies/CookieManager";
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
 import { BookingForm } from "../booking/BookingForm";
 import { RoomList } from "./RoomList";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function UserPage() {
   const userData = CookieManager.getUserData();

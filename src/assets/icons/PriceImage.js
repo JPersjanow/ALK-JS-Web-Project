@@ -1,5 +1,5 @@
-import PriceIcon from "./PriceIcon.svg";
 import { ImageCreator } from "./ImageCreator";
+import PriceIcon from "./PriceIcon.svg";
 
 export const PriceImage = () => {
   const image = ImageCreator(PriceIcon, "price-icon");

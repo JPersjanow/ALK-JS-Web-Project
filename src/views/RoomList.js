@@ -6,7 +6,7 @@ import { ReadMoreButton } from "../navigation/ReadMoreButton";
 import { CookieManager } from "../cookies/CookieManager";
 import { BookingForm } from "../booking/BookingForm";
 import { Loading } from "../loading/Loading";
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function RoomList() {
   const bookingDates = CookieManager.getBookingDates();

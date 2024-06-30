@@ -1,18 +1,17 @@
-import treatmentsImg from "../assets/images/treatmentsImg.jpg";
-import hotelImage from "../assets/images/hotelImg.jpeg";
-import { ReviewImage } from "../assets/icons/ReviewImage";
-import { TimeImage } from "../assets/icons/TimeImage";
 import { Detail } from "../details/Detail";
 import { ReadMoreButton } from "../navigation/ReadMoreButton";
 import { TreatmentList } from "./TreatmentList";
 import { RoomList } from "./RoomList";
+import treatmentsImg from "../assets/images/treatmentsImg.jpg";
+import hotelImage from "../assets/images/hotelImg.jpeg";
+import { ReviewImage } from "../assets/icons/ReviewImage";
+import { TimeImage } from "../assets/icons/TimeImage";
 
 export function Home() {
   const section = document.createElement("div");
   section.classList.add("container");
 
   section.innerHTML = `
-
             <div class="section">
             <div class="introduction">
               <img class="logo" src="logo.svg" alt="SPA logo"/>

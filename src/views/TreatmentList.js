@@ -4,7 +4,7 @@ import { AddToCartButton } from "../cart/AddToCartButton";
 import { ReadMoreButton } from "../navigation/ReadMoreButton";
 import { TreatmentDetails } from "./TreatmentDetails";
 import { Loading } from "../loading/Loading";
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function TreatmentList() {
   const section = document.createElement("section");

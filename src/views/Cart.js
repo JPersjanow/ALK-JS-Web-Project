@@ -4,7 +4,7 @@ import { RemoveFromCartButton } from "../cart/RemoveFromCartButton";
 import { BookingForm } from "../booking/BookingForm";
 import { Detail } from "../details/Detail";
 import { PriceImage } from "../assets/icons/PriceImage";
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function Cart() {
   const bookingDates = CookieManager.getBookingDates();

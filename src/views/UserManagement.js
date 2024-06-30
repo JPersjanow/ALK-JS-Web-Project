@@ -8,7 +8,7 @@ export function UserManagement() {
   section.innerHTML = `
   <div class="header-container">
     <div class="header-img-container">
-      <h2 class="header-medium">Are you ready?<img src="data:img/${tropicalLeaves}"/></h2>
+      <h2 class="header-medium">Are you ready?<img src="${tropicalLeaves}"/></h2>
     </div>
     <p>To spend some money... and relax!</p>
   </div>  

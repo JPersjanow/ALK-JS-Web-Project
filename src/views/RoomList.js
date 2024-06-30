@@ -1,11 +1,12 @@
 import axios from "axios";
+import * as api from "../api/constants.js"
 import { AddToCartButton } from "../cart/AddToCartButton";
 import { RoomDetails } from "./RoomDetails";
 import { ReadMoreButton } from "../navigation/ReadMoreButton";
 import { CookieManager } from "../cookies/CookieManager";
 import { BookingForm } from "../booking/BookingForm";
 import { Loading } from "../loading/Loading";
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function RoomList() {
   const bookingDates = CookieManager.getBookingDates();
@@ -32,7 +33,7 @@ export function RoomList() {
     div.classList.add("card-list");
 
     axios
-      .get("http://localhost:3000/rooms")
+      .get(`${api.URL}/rooms`, api.CONFIG)
       .then((response) => {
         const roomsCards = response.data.map((room) => {
           const roomCard = document.createElement("div");

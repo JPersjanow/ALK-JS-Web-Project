@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as api from "../api/constants.js"
 import { CookieManager } from "../cookies/CookieManager";
 import { Home } from "../views/Home";
 import { RegisterButton } from "./RegisterButton";
@@ -26,16 +27,16 @@ export function RegisterForm(modal) {
     let lastNameFromValue = event.target[2].value;
     let passwordFromValue = event.target[3].value;
     axios
-      .get(`http://localhost:3000/users?username=${usernameFormValue}`)
+      .get(`${api.URL}/users?username=eq.${usernameFormValue}`, api.CONFIG)
       .then((response) => {
         if (response.data.length === 0) {
           let payload = {
             username: usernameFormValue,
             password: passwordFromValue,
-            firstName: firstNameFromValue,
-            lastName: lastNameFromValue,
+            fname: firstNameFromValue,
+            lname: lastNameFromValue,
           };
-          return axios.post("http://localhost:3000/users", payload);
+          return axios.post(`${api.URL}/users`, payload, api.CONFIG);
         } else {
           throw Error(
             `Username ${usernameFormValue} taken, please choose different one!`

@@ -1,9 +1,9 @@
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
 import { AddToCartButton } from "../cart/AddToCartButton";
 import { Details } from "../details/Details";
 import { PriceImage } from "../assets/icons/PriceImage";
 import { TimeImage } from "../assets/icons/TimeImage";
 import { AreaImage } from "../assets/icons/AreaImage";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function TreatmentDetails(treatment) {
   const section = document.createElement("section");

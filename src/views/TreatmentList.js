@@ -1,8 +1,10 @@
+import axios from "axios";
+import * as api from "../api/constants.js"
 import { AddToCartButton } from "../cart/AddToCartButton";
 import { ReadMoreButton } from "../navigation/ReadMoreButton";
 import { TreatmentDetails } from "./TreatmentDetails";
 import { Loading } from "../loading/Loading";
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function TreatmentList() {
   const section = document.createElement("section");
@@ -34,10 +36,9 @@ export function TreatmentList() {
   table.append(tbody);
   section.append(loadingParagprah);
 
-  fetch("http://localhost:3000/treatments")
-    .then((response) => response.json())
+  axios.get(`${api.URL}/treatments`, api.CONFIG)
     .then((treatments) => {
-      const rows = treatments.map((treatment) => {
+      const rows = treatments.data.map((treatment) => {
         const row = document.createElement("tr");
         row.classList.add("table-row");
         row.innerHTML = `

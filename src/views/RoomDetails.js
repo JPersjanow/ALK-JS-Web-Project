@@ -1,10 +1,10 @@
-import tropicalLeaves from "../assets/images/tropicalLeaves.png";
 import { AddToCartButton } from "../cart/AddToCartButton";
 import { BedImage } from "../assets/icons/BedImage";
 import { PriceImage } from "../assets/icons/PriceImage";
 import { PeopleImage } from "../assets/icons/PeopleImage";
 import { ReviewImage } from "../assets/icons/ReviewImage";
 import { Details } from "../details/Details";
+const tropicalLeaves = new URL('../assets/images/tropicalLeaves.png', import.meta.url).href
 
 export function RoomDetails(room) {
   const section = document.createElement("section");

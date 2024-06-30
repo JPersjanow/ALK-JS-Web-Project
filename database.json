@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "admin",
       "firstName": "admin",
@@ -21,11 +21,25 @@
       "password": "test",
       "firstName": "Michał",
       "lastName": "Kostrzewa"
+    },
+    {
+      "id": "4661",
+      "username": "a",
+      "password": "a",
+      "firstName": "a",
+      "lastName": "a"
+    },
+    {
+      "id": "6dd8",
+      "username": "b",
+      "password": "b",
+      "firstName": "b",
+      "lastName": "b"
     }
   ],
   "rooms": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Pokój unarny",
       "beds": 1,
       "guests": 1,
@@ -35,7 +49,7 @@
       "image2": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.rosewoodhotels.com%2Fis%2Fimage%2Frwhg%2Fhi-hgv-26330925-rhgmodelbedroom-1&f=1&nofb=1&ipt=b2f9fca67c3f896b4e4a5ed2da6c7f5a245838667fe0f1715aec413c4c0126d3&ipo=images"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Pokój binarny",
       "beds": 1,
       "guests": 2,
@@ -45,7 +59,7 @@
       "image2": "https://cache.marriott.com/marriottassets/marriott/KULDT/kuldt-guestroom-0065-hor-clsc.jpg?interpolation=progressive-bilinear&"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pokój trójkowy",
       "beds": 2,
       "guests": 3,
@@ -55,7 +69,7 @@
       "image2": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcache.marriott.com%2Fmarriottassets%2Fmarriott%2FLAXJW%2Flaxjw-room-0095-hor-clsc.jpg%3Finterpolation%3Dprogressive-bilinear%26&f=1&nofb=1&ipt=8e1c750fd24def3a32cd46190b23176db9a0a32a108c41816c1cff9650ccf548&ipo=images"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pokój czwórkowy",
       "beds": 2,
       "guests": 4,
@@ -65,7 +79,7 @@
       "image2": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcache.marriott.com%2Fmarriottassets%2Fmarriott%2FLAXJW%2Flaxjw-room-0095-hor-clsc.jpg%3Finterpolation%3Dprogressive-bilinear%26&f=1&nofb=1&ipt=8e1c750fd24def3a32cd46190b23176db9a0a32a108c41816c1cff9650ccf548&ipo=images"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Pokój piątkowy",
       "beds": 2,
       "guests": 4,
@@ -75,7 +89,7 @@
       "image2": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcache.marriott.com%2Fmarriottassets%2Fmarriott%2FLASJW%2Flasjw-suite-0084-hor-clsc.jpg%3Finterpolation%3Dprogressive-bilinear%26&f=1&nofb=1&ipt=3c66e5fd185270daac765cd0ab6e06e26af671a5fa13429fc426162e27eb8ca4&ipo=images"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Pokój szóstkowy",
       "beds": 2,
       "guests": 6,
@@ -85,7 +99,7 @@
       "image2": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcache.marriott.com%2Fmarriottassets%2Fmarriott%2FSTFCT%2Fstfct-guestroom-0045-hor-clsc.jpg%3Finterpolation%3Dprogressive-bilinear%26&f=1&nofb=1&ipt=1206a934968f367fb750cd7052b50267e566c20245724c330d4f1a1f12127e80&ipo=images"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Pokój septymowy",
       "beds": 2,
       "guests": 7,
@@ -97,7 +111,7 @@
   ],
   "treatments": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Masaż rozgrzanym monitorem",
       "area": "back",
       "time": 30,
@@ -105,7 +119,7 @@
       "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FspbNmLSC9dFfgLIN41jVpX-1w5E%2Ffit-in%2F2048xorig%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%2F2019%2F12%2F20%2F718%2Fn%2F1922729%2Ftmp_Eg85Vj_65809b0747406623_GettyImages-925256722.jpg&f=1&nofb=1&ipt=938fb6107b7086a5976abf49f2f50986d2e6d953670362547319102dc428979d&ipo=images"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Biczowanie kablem od myszy",
       "area": "back",
       "time": 20,
@@ -113,7 +127,7 @@
       "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FspbNmLSC9dFfgLIN41jVpX-1w5E%2Ffit-in%2F2048xorig%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%2F2019%2F12%2F20%2F718%2Fn%2F1922729%2Ftmp_Eg85Vj_65809b0747406623_GettyImages-925256722.jpg&f=1&nofb=1&ipt=938fb6107b7086a5976abf49f2f50986d2e6d953670362547319102dc428979d&ipo=images"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Peeling odłamkami płyty CD",
       "area": "face",
       "time": 15,
@@ -121,7 +135,7 @@
       "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FspbNmLSC9dFfgLIN41jVpX-1w5E%2Ffit-in%2F2048xorig%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%2F2019%2F12%2F20%2F718%2Fn%2F1922729%2Ftmp_Eg85Vj_65809b0747406623_GettyImages-925256722.jpg&f=1&nofb=1&ipt=938fb6107b7086a5976abf49f2f50986d2e6d953670362547319102dc428979d&ipo=images"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pedicure woskiem z USB",
       "area": "legs",
       "time": 25,
@@ -129,7 +143,7 @@
       "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FspbNmLSC9dFfgLIN41jVpX-1w5E%2Ffit-in%2F2048xorig%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%2F2019%2F12%2F20%2F718%2Fn%2F1922729%2Ftmp_Eg85Vj_65809b0747406623_GettyImages-925256722.jpg&f=1&nofb=1&ipt=938fb6107b7086a5976abf49f2f50986d2e6d953670362547319102dc428979d&ipo=images"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Manicure analogowo-cyfrowy",
       "area": "hands",
       "time": 45,
@@ -137,7 +151,7 @@
       "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FspbNmLSC9dFfgLIN41jVpX-1w5E%2Ffit-in%2F2048xorig%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%2F2019%2F12%2F20%2F718%2Fn%2F1922729%2Ftmp_Eg85Vj_65809b0747406623_GettyImages-925256722.jpg&f=1&nofb=1&ipt=938fb6107b7086a5976abf49f2f50986d2e6d953670362547319102dc428979d&ipo=images"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Kąpiel w gorącej kawie",
       "area": "body",
       "time": 60,
@@ -145,7 +159,7 @@
       "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.popsugar-assets.com%2Ffiles%2Fthumbor%2FspbNmLSC9dFfgLIN41jVpX-1w5E%2Ffit-in%2F2048xorig%2Ffilters%3Aformat_auto-!!-%3Astrip_icc-!!-%2F2019%2F12%2F20%2F718%2Fn%2F1922729%2Ftmp_Eg85Vj_65809b0747406623_GettyImages-925256722.jpg&f=1&nofb=1&ipt=938fb6107b7086a5976abf49f2f50986d2e6d953670362547319102dc428979d&ipo=images"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Depilacja dyskiem twardym",
       "area": "body",
       "time": 45,

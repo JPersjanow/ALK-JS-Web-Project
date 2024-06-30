@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as api from "../api/constants.js"
 import { AddToCartButton } from "../cart/AddToCartButton";
 import { RoomDetails } from "./RoomDetails";
 import { ReadMoreButton } from "../navigation/ReadMoreButton";
@@ -32,7 +33,7 @@ export function RoomList() {
     div.classList.add("card-list");
 
     axios
-      .get("http://localhost:3000/rooms")
+      .get(`${api.URL}/rooms`, api.CONFIG)
       .then((response) => {
         const roomsCards = response.data.map((room) => {
           const roomCard = document.createElement("div");

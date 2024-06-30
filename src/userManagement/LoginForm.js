@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as api from "../api/constants.js"
 import { CookieManager } from "../cookies/CookieManager";
 import { Home } from "../views/Home";
 import { LoginButton } from "./LoginButton";
@@ -22,7 +23,7 @@ export function LoginForm(modal) {
     let usernameFormValue = event.target[0].value;
     let passwordFormValue = event.target[1].value;
     axios
-      .get(`http://localhost:3000/users?username=${usernameFormValue}`)
+      .get(`${api.URL}/users?username=eq.${usernameFormValue}`, api.CONFIG)
       .then((response) => {
         if (response.data.length === 0) {
           throw Error(
@@ -33,8 +34,8 @@ export function LoginForm(modal) {
         if (passwordFormValue === response.data[0].password) {
           CookieManager.loginUser(
             response.data[0].username,
-            response.data[0].firstName,
-            response.data[0].lastName
+            response.data[0].fname,
+            response.data[0].lname
           );
           const navigateEvent = new CustomEvent("navigate", {
             detail: Home,
